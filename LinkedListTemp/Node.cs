@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace AlgoDataStructures
 {
-    public class DoubleLinkedList<T>
+    public class Node<T>
     {
-
+        public T value = default(T);
+        public Node<T> next = null;
+        public Node<T> previous = null;
     }
 }

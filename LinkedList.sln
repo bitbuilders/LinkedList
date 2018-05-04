@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedListTem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{44725CAD-F8CB-4415-9D19-0AF08AB5682B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedTester", "LinkedTester\LinkedTester.csproj", "{99C2CC79-4637-4552-BBA6-0445C81972A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{44725CAD-F8CB-4415-9D19-0AF08AB5682B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44725CAD-F8CB-4415-9D19-0AF08AB5682B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44725CAD-F8CB-4415-9D19-0AF08AB5682B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99C2CC79-4637-4552-BBA6-0445C81972A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99C2CC79-4637-4552-BBA6-0445C81972A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99C2CC79-4637-4552-BBA6-0445C81972A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99C2CC79-4637-4552-BBA6-0445C81972A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
