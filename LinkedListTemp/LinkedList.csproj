@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoubleLinkedList.cs" />
-    <Compile Include="Node.cs" />
+    <Compile Include="DoubleNode.cs" />
+    <Compile Include="SingleNode.cs" />
     <Compile Include="SingleLinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

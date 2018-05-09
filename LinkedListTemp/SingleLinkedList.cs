@@ -8,31 +8,31 @@ namespace AlgoDataStructures
 {
     public class SingleLinkedList<T>
     {
-        private Node<T> head = null;
-        private Node<T> tail = null;
+        private SingleNode<T> head = null;
+        private SingleNode<T> tail = null;
         public int Count { get; private set; }
 
         public void Add(T val)
         {
-            Node<T> node = new Node<T>();
-            node.value = val;
+            SingleNode<T> SingleNode = new SingleNode<T>();
+            SingleNode.value = val;
             Count++;
 
             if (Count == 1)
             {
-                head = node;
-                tail = node;
+                head = SingleNode;
+                tail = SingleNode;
             }
             else
             {
-                Node<T> prevNode = head;
+                SingleNode<T> prevSingleNode = head;
                 for (int i = 1; i < Count - 1; ++i)
                 {
-                    prevNode = prevNode.next;
+                    prevSingleNode = prevSingleNode.next;
                 }
-                prevNode.next = node;
+                prevSingleNode.next = SingleNode;
 
-                tail = node;
+                tail = SingleNode;
             }
         }
 
@@ -66,28 +66,28 @@ namespace AlgoDataStructures
             }
             else if (index >= 0 && index <= Count - 1)
             {
-                Node<T> currentNode = head;
-                Node<T> prev = null;
-                Node<T> next = null;
+                SingleNode<T> currentSingleNode = head;
+                SingleNode<T> prev = null;
+                SingleNode<T> next = null;
                 prev = head;
                 for (int i = 1; i < index + 1; ++i)
                 {
-                    currentNode = currentNode.next;
+                    currentSingleNode = currentSingleNode.next;
                     if (i == index - 1)
                     {
-                        prev = currentNode;
+                        prev = currentSingleNode;
                     }
                     else if (i == index)
                     {
-                        val = currentNode.value;
+                        val = currentSingleNode.value;
                     }
                     else if (i == index + 1)
                     {
-                        next = currentNode;
+                        next = currentSingleNode;
                     }
                     if (i == index - 1 && index == Count -1)
                     {
-                        tail = currentNode;
+                        tail = currentSingleNode;
                     }
                 }
 
@@ -114,14 +114,14 @@ namespace AlgoDataStructures
             }
             else
             {
-                Node<T> currentNode = head;
+                SingleNode<T> currentSingleNode = head;
                 for (int i = 1; i < Count - 1; ++i)
                 {
-                    currentNode = currentNode.next;
+                    currentSingleNode = currentSingleNode.next;
                 }
-                tail = currentNode;
-                val = currentNode.next.value;
-                currentNode.next = null;
+                tail = currentSingleNode;
+                val = currentSingleNode.next.value;
+                currentSingleNode.next = null;
 
                 Count--;
             }
@@ -133,35 +133,35 @@ namespace AlgoDataStructures
         {
             if (index == 0)
             {
-                Node<T> newNode = new Node<T>();
-                newNode.value = val;
-                newNode.next = head;
-                head = newNode;
+                SingleNode<T> newSingleNode = new SingleNode<T>();
+                newSingleNode.value = val;
+                newSingleNode.next = head;
+                head = newSingleNode;
 
                 Count++;
             }
             else if (index >= 0 && index <= Count - 1)
             {
-                Node<T> newNode = new Node<T>();
-                newNode.value = val;
-                Node<T> currentNode = head;
-                Node<T> prev = head;
+                SingleNode<T> newSingleNode = new SingleNode<T>();
+                newSingleNode.value = val;
+                SingleNode<T> currentSingleNode = head;
+                SingleNode<T> prev = head;
                 for (int i = 1; i < index; ++i)
                 {
-                    currentNode = currentNode.next;
+                    currentSingleNode = currentSingleNode.next;
                     if (i == index - 1)
                     {
-                        prev = currentNode;
+                        prev = currentSingleNode;
                     }
                     else if (i == index)
                     {
-                        newNode.next = currentNode;
+                        newSingleNode.next = currentSingleNode;
                     }
                 }
-                prev.next = newNode;
+                prev.next = newSingleNode;
                 if (index == 1)
                 {
-                    head.next = newNode;
+                    head.next = newSingleNode;
                 }
 
                 Count++;
@@ -182,13 +182,13 @@ namespace AlgoDataStructures
             }
             else if (index >= 0 && index <= Count - 1)
             {
-                Node<T> currentNode = head;
+                SingleNode<T> currentSingleNode = head;
                 for (int i = 1; i < index + 1; ++i)
                 {
-                    currentNode = currentNode.next;
+                    currentSingleNode = currentSingleNode.next;
                 }
 
-                val = currentNode.value;
+                val = currentSingleNode.value;
             }
             else
             {
@@ -209,15 +209,15 @@ namespace AlgoDataStructures
         {
             int index = -1;
 
-            Node<T> currentNode = head;
+            SingleNode<T> currentSingleNode = head;
             for (int i = 0; i < Count; ++i)
             {
-                if (currentNode.value.Equals(val))
+                if (currentSingleNode.value.Equals(val))
                 {
                     index = i;
                     break;
                 }
-                currentNode = currentNode.next;
+                currentSingleNode = currentSingleNode.next;
             }
 
             return index;
@@ -235,16 +235,16 @@ namespace AlgoDataStructures
                     sb.Append(", ");
                 }
 
-                Node<T> currentNode = head.next;
+                SingleNode<T> currentSingleNode = head.next;
                 for (int i = 1; i < Count - 1; ++i)
                 {
-                    sb.Append(currentNode.value);
+                    sb.Append(currentSingleNode.value);
                     sb.Append(", ");
-                    currentNode = currentNode.next;
+                    currentSingleNode = currentSingleNode.next;
                 }
-                if (currentNode != null)
+                if (currentSingleNode != null)
                 {
-                    sb.Append(currentNode.value);
+                    sb.Append(currentSingleNode.value);
                 }
             }
 

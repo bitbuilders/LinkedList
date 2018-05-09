@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace AlgoDataStructures
 {
-    public class Node<T>
+    public class SingleNode<T>
     {
         public T value = default(T);
-        public Node<T> next = null;
-        public Node<T> previous = null;
+        public SingleNode<T> next = null;
     }
 }
