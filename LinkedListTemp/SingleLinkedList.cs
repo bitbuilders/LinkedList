@@ -60,7 +60,7 @@ namespace AlgoDataStructures
             // Removes value at index and returns
             T val = default(T);
 
-            if (index == 0)
+            if (index == 0 && Count > 1)
             {
                 val = Remove();
             }
@@ -70,7 +70,7 @@ namespace AlgoDataStructures
                 SingleNode<T> prev = null;
                 SingleNode<T> next = null;
                 prev = head;
-                for (int i = 1; i < index + 1; ++i)
+                for (int i = 1; i <= index + 1; ++i)
                 {
                     currentSingleNode = currentSingleNode.next;
                     if (i == index - 1)
@@ -112,7 +112,7 @@ namespace AlgoDataStructures
             {
                 val = Remove();
             }
-            else
+            else if (Count > 1)
             {
                 SingleNode<T> currentSingleNode = head;
                 for (int i = 1; i < Count - 1; ++i)
@@ -146,7 +146,7 @@ namespace AlgoDataStructures
                 newSingleNode.value = val;
                 SingleNode<T> currentSingleNode = head;
                 SingleNode<T> prev = head;
-                for (int i = 1; i < index; ++i)
+                for (int i = 1; i <= index; ++i)
                 {
                     currentSingleNode = currentSingleNode.next;
                     if (i == index - 1)
@@ -176,7 +176,7 @@ namespace AlgoDataStructures
         {
             T val = default(T);
 
-            if (index == 0)
+            if (index == 0 && Count > 0)
             {
                 val = head.value;
             }

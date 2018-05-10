@@ -55,22 +55,24 @@ namespace AlgoDataStructures
             // Removes value at index and returns
             T val = default(T);
 
-            if (index == 0)
+            if (index == 0 && Count > 0)
             {
                 val = Remove();
             }
             else if (index >= 0 && index <= Count - 1)
             {
                 DoubleNode<T> currentDoubleNode = head;
-                for (int i = 1; i < index + 1; ++i)
+                for (int i = 1; i <= index; ++i)
                 {
                     currentDoubleNode = currentDoubleNode.next;
                     if (i == index)
                     {
+                        if (currentDoubleNode.next != null)
+                            currentDoubleNode.next.previous = currentDoubleNode.previous;
                         currentDoubleNode.previous.next = currentDoubleNode.next;
                         val = currentDoubleNode.value;
                     }
-                    if (i == index - 1 && index == Count - 1)
+                    if (i == index && index == Count - 1)
                     {
                         tail = currentDoubleNode;
                     }
@@ -95,10 +97,11 @@ namespace AlgoDataStructures
             {
                 val = Remove();
             }
-            else
+            else if (Count > 1)
             {
                 val = tail.value;
                 tail = tail.previous;
+                tail.next = null;
 
                 Count--;
             }
@@ -110,10 +113,11 @@ namespace AlgoDataStructures
         {
             if (index == 0)
             {
-                DoubleNode<T> newDoubleNode = new DoubleNode<T>();
-                newDoubleNode.value = val;
-                newDoubleNode.next = head;
-                head = newDoubleNode;
+                DoubleNode<T> newNode = new DoubleNode<T>();
+                newNode.value = val;
+                newNode.next = head;
+                head.previous = newNode;
+                head = newNode;
 
                 Count++;
             }
@@ -122,19 +126,16 @@ namespace AlgoDataStructures
                 DoubleNode<T> newNode = new DoubleNode<T>();
                 newNode.value = val;
                 DoubleNode<T> currentNode = head;
-                for (int i = 1; i < index; ++i)
+                for (int i = 1; i <= index; ++i)
                 {
                     currentNode = currentNode.next;
                     if (i == index)
                     {
-                        currentNode.previous = newNode;
-                        newNode.next = currentNode.next;
+                        currentNode.previous.next = newNode;
+                        newNode.previous = currentNode.previous;
+                        newNode.next = currentNode;
                         currentNode.previous = newNode;
                     }
-                }
-                if (index == 1)
-                {
-                    head.next = newNode;
                 }
 
                 Count++;

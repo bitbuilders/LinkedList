@@ -13,11 +13,11 @@ namespace ConsoleTest
         {
             SingleLinkedList<int> singleLL = new SingleLinkedList<int>();
             DoubleLinkedList<int> doubleLL = new DoubleLinkedList<int>();
-            doubleLL.Add(2);
+            //doubleLL.Add(2);
             doubleLL.Add(3);
             doubleLL.Add(4);
-            doubleLL.Insert(1, 1);
-            //Console.WriteLine(doubleLL.Get(1));
+            doubleLL.RemoveLast();
+            //Console.WriteLine(doubleLL.Search(0));
             Console.WriteLine(doubleLL);
         }
     }
