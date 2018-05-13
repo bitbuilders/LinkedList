@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BST.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +56,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BinarySearchTree\BinarySearchTree.csproj">
+      <Project>{6e9b805f-02be-46b2-be6e-6d9442f0974b}</Project>
+      <Name>BinarySearchTree</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinkedListTemp\LinkedList.csproj">
       <Project>{c54af6e2-9b21-4319-a627-e203f00396a2}</Project>
       <Name>LinkedList</Name>

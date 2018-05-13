@@ -11,14 +11,17 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            SingleLinkedList<int> singleLL = new SingleLinkedList<int>();
-            DoubleLinkedList<int> doubleLL = new DoubleLinkedList<int>();
-            //doubleLL.Add(2);
-            doubleLL.Add(3);
-            doubleLL.Add(4);
-            doubleLL.RemoveLast();
-            //Console.WriteLine(doubleLL.Search(0));
-            Console.WriteLine(doubleLL);
+            BinarySearchTree<int> bst = new BinarySearchTree<int>();
+            bst.Add(10);
+            bst.Add(5);
+            bst.Add(1);
+            bst.Add(7);
+            bst.Add(6);
+            bst.Add(15);
+            bst.Add(20);
+            bst.Add(12);
+            bst.Add(13);
+            Console.WriteLine(bst.InOrder());
         }
     }
 }
