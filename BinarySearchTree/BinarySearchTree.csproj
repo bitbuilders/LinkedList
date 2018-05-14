@@ -7,7 +7,7 @@
     <ProjectGuid>{6E9B805F-02BE-46B2-BE6E-6D9442F0974B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>BinarySearchTree</RootNamespace>
-    <AssemblyName>BinarySearchTree</AssemblyName>
+    <AssemblyName>MisbachC_AlgoDataStructures</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -12,15 +12,10 @@ namespace ConsoleTest
         static void Main(string[] args)
         {
             BinarySearchTree<int> bst = new BinarySearchTree<int>();
-            bst.Add(10);
-            bst.Add(5);
-            bst.Add(1);
-            bst.Add(7);
-            bst.Add(6);
-            bst.Add(15);
-            bst.Add(20);
-            bst.Add(12);
-            bst.Add(13);
+            bst.AddRange(new int[] { 10, 5, 1, 7, 6, 15, 20, 12, 13 });
+
+            bst.Clear();
+            Console.WriteLine(bst.Height());
             Console.WriteLine(bst.InOrder());
         }
     }
