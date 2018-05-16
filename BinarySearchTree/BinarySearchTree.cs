@@ -200,9 +200,9 @@ namespace AlgoDataStructures
 
             if (root != null)
             {
-                InOrderTraverse(root.left, sb, TraverseType.LEFT);
+                InOrderTraverse(root.left, sb);
                 sb.Append($"{root.value}, ");
-                InOrderTraverse(root.right, sb, TraverseType.RIGHT);
+                InOrderTraverse(root.right, sb);
 
                 string s = sb.ToString();
                 return s.Remove(s.Length - 2);
@@ -213,23 +213,14 @@ namespace AlgoDataStructures
             }
         }
 
-        private void InOrderTraverse(BinaryNode<T> node, StringBuilder sb, TraverseType type)
+        private void InOrderTraverse(BinaryNode<T> node, StringBuilder sb)
         {
             if (node == null)
                 return;
 
-            if (type == TraverseType.LEFT)
-            {
-                InOrderTraverse(node.left, sb, type);
-                sb.Append($"{node.value}, ");
-                InOrderTraverse(node.right, sb, type);
-            }
-            else
-            {
-                InOrderTraverse(node.right, sb, type);
-                sb.Append($"{node.value}, ");
-                InOrderTraverse(node.left, sb, type);
-            }
+            InOrderTraverse(node.left, sb);
+            sb.Append($"{node.value}, ");
+            InOrderTraverse(node.right, sb);
         }
 
         public string PreOrder()
@@ -239,29 +230,21 @@ namespace AlgoDataStructures
             if (root != null)
             {
                 sb.Append($"{root.value}");
-                PreOrderTraverse(root.left, sb, TraverseType.LEFT);
-                PreOrderTraverse(root.right, sb, TraverseType.RIGHT);
+                PreOrderTraverse(root.left, sb);
+                PreOrderTraverse(root.right, sb);
             }
 
             return sb.ToString();
         }
 
-        private void PreOrderTraverse(BinaryNode<T> node, StringBuilder sb, TraverseType type)
+        private void PreOrderTraverse(BinaryNode<T> node, StringBuilder sb)
         {
             if (node == null)
                 return;
 
             sb.Append($", {node.value}");
-            if (type == TraverseType.LEFT)
-            {
-                PreOrderTraverse(node.left, sb, type);
-                PreOrderTraverse(node.right, sb, type);
-            }
-            else
-            {
-                PreOrderTraverse(node.right, sb, type);
-                PreOrderTraverse(node.left, sb, type);
-            }
+            PreOrderTraverse(node.left, sb);
+            PreOrderTraverse(node.right, sb);
         }
 
         public string PostOrder()
@@ -270,31 +253,22 @@ namespace AlgoDataStructures
 
             if (root != null)
             {
-                PostOrderTraverse(root.left, sb, TraverseType.LEFT);
-                PostOrderTraverse(root.right, sb, TraverseType.RIGHT);
+                PostOrderTraverse(root.left, sb);
+                PostOrderTraverse(root.right, sb);
                 sb.Append($"{root.value}");
             }
 
             return sb.ToString();
         }
 
-        private void PostOrderTraverse(BinaryNode<T> node, StringBuilder sb, TraverseType type)
+        private void PostOrderTraverse(BinaryNode<T> node, StringBuilder sb)
         {
             if (node == null)
                 return;
 
-            if (type == TraverseType.LEFT)
-            {
-                PostOrderTraverse(node.left, sb, type);
-                PostOrderTraverse(node.right, sb, type);
-                sb.Append($"{node.value}, ");
-            }
-            else
-            {
-                PostOrderTraverse(node.right, sb, type);
-                PostOrderTraverse(node.left, sb, type);
-                sb.Append($"{node.value}, ");
-            }
+            PostOrderTraverse(node.left, sb);
+            PostOrderTraverse(node.right, sb);
+            sb.Append($"{node.value}, ");
         }
 
         public int Height()
@@ -328,30 +302,21 @@ namespace AlgoDataStructures
             T[] values = new T[Count];
 
             int currentIndex = 0;
-            AddNodes(root.left, values, ref currentIndex, TraverseType.LEFT);
+            AddNodes(root.left, values, ref currentIndex);
             values[currentIndex++] = root.value;
-            AddNodes(root.right, values, ref currentIndex, TraverseType.RIGHT);
+            AddNodes(root.right, values, ref currentIndex);
 
             return values;
         }
 
-        private void AddNodes(BinaryNode<T> node, T[] values, ref int currentIndex, TraverseType type)
+        private void AddNodes(BinaryNode<T> node, T[] values, ref int currentIndex)
         {
             if (node == null)
                 return;
 
-            if (type == TraverseType.LEFT)
-            {
-                AddNodes(node.left, values, ref currentIndex, type);
-                values[currentIndex++] = node.value;
-                AddNodes(node.right, values, ref currentIndex, type);
-            }
-            else
-            {
-                AddNodes(node.right, values, ref currentIndex, type);
-                values[currentIndex++] = node.value;
-                AddNodes(node.left, values, ref currentIndex, type);
-            }
+            AddNodes(node.left, values, ref currentIndex);
+            values[currentIndex++] = node.value;
+            AddNodes(node.right, values, ref currentIndex);
         }
     }
 }
