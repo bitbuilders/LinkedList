@@ -53,10 +53,6 @@
       <Project>{6e9b805f-02be-46b2-be6e-6d9442f0974b}</Project>
       <Name>BinarySearchTree</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LinkedListTemp\LinkedList.csproj">
-      <Project>{c54af6e2-9b21-4319-a627-e203f00396a2}</Project>
-      <Name>LinkedList</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

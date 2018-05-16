@@ -14,7 +14,7 @@ namespace ConsoleTest
             BinarySearchTree<int> bst = new BinarySearchTree<int>();
             bst.AddRange(new int[] { 10, 5, 1, 7, 6, 15, 20, 12, 13 });
 
-            bst.Clear();
+            //bst.Clear();
             Console.WriteLine(bst.Height());
             Console.WriteLine(bst.InOrder());
         }
