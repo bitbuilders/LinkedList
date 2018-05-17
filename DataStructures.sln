@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedListTemp\LinkedList.csproj", "{C54AF6E2-9B21-4319-A627-E203F00396A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "LinkedListTemp\DataStructures.csproj", "{C54AF6E2-9B21-4319-A627-E203F00396A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{44725CAD-F8CB-4415-9D19-0AF08AB5682B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedTester", "LinkedTester\LinkedTester.csproj", "{99C2CC79-4637-4552-BBA6-0445C81972A2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchTree", "BinarySearchTree\BinarySearchTree.csproj", "{6E9B805F-02BE-46B2-BE6E-6D9442F0974B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{99C2CC79-4637-4552-BBA6-0445C81972A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99C2CC79-4637-4552-BBA6-0445C81972A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99C2CC79-4637-4552-BBA6-0445C81972A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E9B805F-02BE-46B2-BE6E-6D9442F0974B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E9B805F-02BE-46B2-BE6E-6D9442F0974B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E9B805F-02BE-46B2-BE6E-6D9442F0974B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E9B805F-02BE-46B2-BE6E-6D9442F0974B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
