@@ -19,13 +19,23 @@ namespace ConsoleTest
             pq.Enqueue(4, 1);
             pq.Enqueue(5, 1);
             pq.Enqueue(6, 1);
-            Console.WriteLine(pq);
+            pq.Enqueue(7, 1);
             Console.WriteLine(pq.Dequeue());
             Console.WriteLine(pq.Dequeue());
             Console.WriteLine(pq.Dequeue());
             Console.WriteLine(pq.Dequeue());
             Console.WriteLine(pq.Dequeue());
             Console.WriteLine(pq.Dequeue());
+            Console.WriteLine(pq.Dequeue());
+        }
+
+        static private void PrintStuff(MaxHeapPriorityQueue pq)
+        {
+            PQNode[] nodes = pq.ToSortedArray();
+            foreach (PQNode node in nodes)
+            {
+                Console.WriteLine("\"" + node + "\"");
+            }
         }
     }
 }

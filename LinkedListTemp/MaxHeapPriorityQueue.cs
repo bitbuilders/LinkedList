@@ -37,7 +37,7 @@ namespace AlgoDataStructures
         {
             PQNode parent = GetParentOf(curIndex);
 
-            if (parent != null && m_nodes[curIndex].priority > parent.priority)
+            if (parent != null && m_nodes[curIndex].Priority > parent.Priority)
             {
                 SwapParentOfChild(curIndex);
                 HeapifyEnqueue(ParentIndex(curIndex));
@@ -71,12 +71,15 @@ namespace AlgoDataStructures
             int larger = -1;
             if (left == null && right != null) larger = RightChildIndex(curIndex);
             else if (left != null && right == null) larger = LeftChildIndex(curIndex);
-            else if (left != null && right != null) larger = left.priority > right.priority ? LeftChildIndex(curIndex) : RightChildIndex(curIndex);
+            else if (left != null && right != null) larger = left.Priority > right.Priority ? LeftChildIndex(curIndex) : RightChildIndex(curIndex);
 
             if (larger != -1)
             {
-                SwapParentOfChild(larger);
-                HeapifyDequeue(larger);
+                if (m_nodes[larger].Priority > m_nodes[curIndex].Priority)
+                {
+                    SwapParentOfChild(larger);
+                    HeapifyDequeue(larger);
+                }
             }
         }
 
@@ -95,7 +98,7 @@ namespace AlgoDataStructures
             for (int i = 2; i < m_nodes.Length; i++)
             {
                 if (m_nodes[i] != null)
-                    sb.Append($",{m_nodes[i]}");
+                    sb.Append($", {m_nodes[i]}");
                 else
                     break;
             }

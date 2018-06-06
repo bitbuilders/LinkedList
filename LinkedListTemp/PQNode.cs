@@ -10,16 +10,16 @@ namespace AlgoDataStructures
     {
         public PQNode(int prio, int val)
         {
-            priority = prio;
-            value = val;
+            Priority = prio;
+            Value = val;
         }
 
-        public int priority;
-        public int value;
+        public int Priority { get; private set; }
+        public int Value { get; private set; }
 
         public override string ToString()
         {
-            return $"{priority}:{value}";
+            return $"{Priority}:{Value}";
         }
     }
 }
