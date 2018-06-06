@@ -11,12 +11,15 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            BinarySearchTree<int> bst = new BinarySearchTree<int>();
-            bst.AddRange(new int[] { 10, 5, 1, 7, 6, 15, 20, 12, 13 });
+            MaxHeapPriorityQueue pq = new MaxHeapPriorityQueue();
 
-            //bst.Clear();
-            Console.WriteLine(bst.Height());
-            Console.WriteLine(bst.InOrder());
+            pq.Enqueue(1, 1);
+            pq.Enqueue(2, 1);
+            pq.Enqueue(3, 1);
+            pq.Enqueue(4, 1);
+            pq.Enqueue(5, 1);
+            pq.Enqueue(6, 1);
+            Console.WriteLine(pq);
         }
     }
 }

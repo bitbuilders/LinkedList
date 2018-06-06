@@ -44,6 +44,8 @@
     <Compile Include="BinarySearchTree.cs" />
     <Compile Include="DoubleLinkedList.cs" />
     <Compile Include="DoubleNode.cs" />
+    <Compile Include="MaxHeapPriorityQueue.cs" />
+    <Compile Include="PQNode.cs" />
     <Compile Include="SingleNode.cs" />
     <Compile Include="SingleLinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
