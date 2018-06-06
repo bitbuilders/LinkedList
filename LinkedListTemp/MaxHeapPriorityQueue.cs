@@ -22,36 +22,67 @@ namespace AlgoDataStructures
         {
             PQNode node = new PQNode(priority, value);
             Count++;
-            if (Count > m_nodes.Length)
+            if (Count >= m_nodes.Length)
             {
                 PQNode[] newNodes = new PQNode[m_nodes.Length * 2];
                 Array.Copy(m_nodes, newNodes, m_nodes.Length);
                 m_nodes = newNodes;
             }
 
-            m_nodes[Count - 1] = node;
-            HeapifyEnqueue(Count - 1);
+            m_nodes[Count] = node;
+            HeapifyEnqueue(Count);
         }
 
         private void HeapifyEnqueue(int curIndex)
         {
             PQNode parent = GetParentOf(curIndex);
 
-            if (m_nodes[curIndex].priority > parent.priority)
+            if (parent != null && m_nodes[curIndex].priority > parent.priority)
             {
                 SwapParentOfChild(curIndex);
-                HeapifyEnqueue((curIndex - 1) / 2);
+                HeapifyEnqueue(ParentIndex(curIndex));
             }
         }
 
         public PQNode Dequeue()
         {
-            return null;
+            PQNode node = null;
+            if (Count > 0)
+            {
+                node = Peek();
+                m_nodes[1] = m_nodes[Count];
+                m_nodes[Count] = null;
+                Count--;
+
+                if (Count > 0)
+                {
+                    HeapifyDequeue(1);
+                }
+            }
+
+            return node;
+        }
+
+        private void HeapifyDequeue(int curIndex)
+        {
+            PQNode left = GetLeftChildOf(curIndex);
+            PQNode right = GetRightChildOf(curIndex);
+
+            int larger = -1;
+            if (left == null && right != null) larger = RightChildIndex(curIndex);
+            else if (left != null && right == null) larger = LeftChildIndex(curIndex);
+            else if (left != null && right != null) larger = left.priority > right.priority ? LeftChildIndex(curIndex) : RightChildIndex(curIndex);
+
+            if (larger != -1)
+            {
+                SwapParentOfChild(larger);
+                HeapifyDequeue(larger);
+            }
         }
 
         public PQNode Peek()
         {
-            return m_nodes[0];
+            return m_nodes[1];
         }
 
         public override string ToString()
@@ -59,12 +90,14 @@ namespace AlgoDataStructures
             StringBuilder sb = new StringBuilder();
 
             if (Count > 0)
-                sb.Append(m_nodes[0]);
+                sb.Append(m_nodes[1]);
 
-            for (int i = 1; i < m_nodes.Length; i++)
+            for (int i = 2; i < m_nodes.Length; i++)
             {
                 if (m_nodes[i] != null)
                     sb.Append($",{m_nodes[i]}");
+                else
+                    break;
             }
 
             return sb.ToString();
@@ -84,24 +117,41 @@ namespace AlgoDataStructures
 
         private PQNode GetLeftChildOf(int node)
         {
-            return m_nodes[node * 2];
+            if (LeftChildIndex(node) >= m_nodes.Length) return null;
+            return m_nodes[LeftChildIndex(node)];
         }
 
         private PQNode GetRightChildOf(int node)
         {
-            return m_nodes[node * 2 + 1];
+            if (RightChildIndex(node) >= m_nodes.Length) return null;
+            return m_nodes[RightChildIndex(node)];
         }
 
         private PQNode GetParentOf(int node)
         {
-            return m_nodes[(node - 1) / 2];
+            return m_nodes[ParentIndex(node)];
         }
 
         private void SwapParentOfChild(int child)
         {
             PQNode temp = m_nodes[child];
-            m_nodes[child] = m_nodes[(child - 1) / 2];
-            m_nodes[(child - 1) / 2] = temp;
+            m_nodes[child] = m_nodes[ParentIndex(child)];
+            m_nodes[ParentIndex(child)] = temp;
+        }
+
+        private int LeftChildIndex(int node)
+        {
+            return node * 2;
+        }
+
+        private int RightChildIndex(int node)
+        {
+            return node * 2 + 1;
+        }
+
+        private int ParentIndex(int node)
+        {
+            return node / 2;
         }
     }
 }

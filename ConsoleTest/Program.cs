@@ -20,6 +20,12 @@ namespace ConsoleTest
             pq.Enqueue(5, 1);
             pq.Enqueue(6, 1);
             Console.WriteLine(pq);
+            Console.WriteLine(pq.Dequeue());
+            Console.WriteLine(pq.Dequeue());
+            Console.WriteLine(pq.Dequeue());
+            Console.WriteLine(pq.Dequeue());
+            Console.WriteLine(pq.Dequeue());
+            Console.WriteLine(pq.Dequeue());
         }
     }
 }
